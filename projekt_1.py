@@ -19,7 +19,12 @@ seznam_slov_3 = list(filter(None, re.split(r'\W+', text_3.lower())))
 
 
 # Přihlášení uživatelů
-users_registred = {"bob":"123", "ann":"pass123","mike":"password123", "liz":"pass123"}
+users_registred = {
+    "bob": "123",
+    "ann": "pass123",
+    "mike": "password123",
+    "liz":"pass123"
+}
 
 print(f"Sign in:")
 name = input("name: ")
@@ -38,7 +43,9 @@ else:
         else:
             attempts -= 1
             if attempts > 0:
-                print(f"Incorrect password. You have {attempts} attempt(s) left.")
+                print(
+                    f"Incorrect password. You have {attempts} attempt(s) left."
+                )
             else:
                 print("Access denied. Terminating the program.")
                 exit(input("Press <Enter> to exit..."))
