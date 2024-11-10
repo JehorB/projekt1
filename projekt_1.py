@@ -27,28 +27,51 @@ users_registred = {
 }
 
 print(f"Sign in:")
-name = input("name: ")
+name = input("name: ").lower().strip()
 
 # Kontrola, zda je uživatel registrován
-if name.lower() not in users_registred.keys():
+if name not in users_registred.keys():
     print("unregistered user, terminating the program.")
-    exit(input("Press <Enter> to exit..."))
-# Ověření hesla s možností dalších pokusů
-else:
+    for _ in range(10**8):  # Zpoždění v prázdném cyklu
+        pass
+    exit()
+else: # Ověření hesla s možností dalších pokusů
     attempts = 3  # Celkový počet pokusů
     while attempts > 0:
         password = input("password: ")
-        if password == users_registred[name.lower()]:
+        if password == users_registred[name]:
             break
         else:
             attempts -= 1
             if attempts > 0:
                 print(
-                    f"Incorrect password. You have {attempts} attempt(s) left."
+                f"Incorrect password. You have {attempts} attempt(s) left."
                 )
             else:
                 print("Access denied. Terminating the program.")
-                exit(input("Press <Enter> to exit..."))
+                for _ in range(10**8):  # Zpoždění v prázdném cyklu
+                    pass
+                exit()
+
+print(f"Welcome to the app, {name.capitalize()}")
 
 
 # Výběr textu k analýze
+print("We have 3 texts to be analyzed.")
+
+nomber_text = input("Enter a number btw. 1 and 3 to select: ")
+
+# Kontrola zadání čísla textů
+if nomber_text.isdigit():
+    if nomber_text not in ("1", "2", "3"):
+        print("The selected text number is not valid. Terminating the program.")
+        for _ in range(10**8):  # Zpoždění v prázdném cyklu
+            pass
+        exit()
+else:
+    print("The selected is not valid. Terminating the program.")
+    for _ in range(10**8):  # Zpoždění v prázdném cyklu
+        pass
+    exit()
+
+input()
