@@ -11,15 +11,6 @@ from task_template import TEXTS # import textů
 separator = '-' * 40 # dělící čára
 
 
-# stvorení seznamu slov
-text_1 = TEXTS[0]
-text_2 = TEXTS[1]
-text_3 = TEXTS[2]
-seznam_slov_1 = list(filter(None, re.split(r'\W+', text_1.lower())))
-seznam_slov_2 = list(filter(None, re.split(r'\W+', text_2.lower())))
-seznam_slov_3 = list(filter(None, re.split(r'\W+', text_3.lower())))
-
-
 # Přihlášení uživatelů
 users_registred = {
     "bob": "123",
