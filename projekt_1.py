@@ -6,6 +6,7 @@ email: yhr.baranov@post.cz
 
 """
 import re
+import time
 from task_template import TEXTS # import textů
 
 separator = '-' * 40 # dělící čára
@@ -28,8 +29,7 @@ name = input("name: ").lower().strip()
 if name not in users_registred.keys():
     print(separator)
     print("unregistered user, terminating the program.")
-    for _ in range(10**8):  # Zpoždění v prázdném cyklu
-        pass
+    time.sleep(3) # Zpoždění na 3s před uzavřením programu
     exit()
 else: # Ověření hesla s možností dalších pokusů
     attempts = 3  # Celkový počet pokusů
@@ -46,8 +46,7 @@ else: # Ověření hesla s možností dalších pokusů
             else:
                 print(separator)
                 print("Access denied. Terminating the program.")
-                for _ in range(10**8):  # Zpoždění v prázdném cyklu
-                    pass
+                time.sleep(3) # Zpoždění na 3s před uzavřením programu
                 exit()
 
 print(separator) # dělící čára
@@ -71,13 +70,11 @@ if nomber_text.isdigit():
             "The selected text number is not valid. "
             "Terminating the program."
         )
-        for _ in range(10**8):  # Zpoždění v prázdném cyklu
-            pass
+        time.sleep(3) # Zpoždění na 3s před uzavřením programu
         exit()
 else:
     print("The selected is not valid. Terminating the program.")
-    for _ in range(10**8):  # Zpoždění v prázdném cyklu
-        pass
+    time.sleep(3) # Zpoždění na 3s před uzavřením programu
     exit()
 
 
@@ -86,14 +83,18 @@ text_selected = TEXTS[int(nomber_text) - 1] # Výběr textu ze seznamu
 
 # Vyčištění textu od mezer a interpunkčních znamének
 text_list = list(filter(None, re.split(r'\W+', text_selected)))
+
 # Nalezení a počítání titulních slov
 word_titlecase = sum(1 for word in text_list if word.istitle())
+
 # Nalezení a počítání slov psaných velkými písmeny
 word_uppercase = sum(1 for word in text_list 
                      if word.isupper() and word.isalpha()
                      )
+
 # Nalezení a počítání slov psaných malými písmeny
 word_lowercase = sum(1 for word in text_list if word.islower())
+
 # Nalezení a počítání čísel
 numbers = sum(1 for number in text_list if number.isdigit())
 numbers_sum = 0
