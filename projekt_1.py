@@ -103,6 +103,7 @@ for number in text_list:
         number = int(number)
         numbers_sum += number
 
+# Závěr výsledků analýzy textu
 print(f"There are {len(text_list)} words in the selected text.")
 print(f"There are {word_titlecase} titlecase words.")
 print(f"There are {word_uppercase} uppercase words.")
@@ -110,4 +111,32 @@ print(f"There are {word_lowercase} lowercase words.")
 print(f"There are {numbers} numeric strings.")
 print(f"The sum of all the numbers {numbers_sum}")
 
-input()
+
+# Zjištění délky slov a počtu výskytů v textu
+word_len = {}
+
+# Nalezení a počítání délky slov
+for word in text_list:
+    lenght = len(word)
+    if lenght not in word_len:
+        word_len[lenght] = 1
+    else:
+        word_len[lenght] += 1 # Počet výskytů
+
+word_len = dict(sorted(word_len.items()))
+
+
+# Zobrazení sloupcového grafu
+print(separator)
+# Tisk záhlaví tabulky
+print(f"{'LEN':<4}|{'OCCURENCES':^18}|{'NR.':>4}")
+
+print(separator)
+
+# Tisk řádků tabulky
+# Formát řetězce: délka slova, hvězdičky podle počtu schůzek, počet schůzek
+for length, count in word_len.items():
+    print(f"{length:<4}|{'*' * count:<18}|{count:>4}")
+
+
+input("Press <Enter> to exit...")
