@@ -60,12 +60,17 @@ while True:
 
     print(separator)
 
-    nomber_text = input(f"Enter a number btw. 1 and {len(TEXTS)} to select: ")
+    nomber_text = input(
+        f"Enter a number btw. 1 and {len(TEXTS)} to select \n"
+        "or <Enter> to exit: "
+        )
 
     print(separator)
 
     if nomber_text == "":  # Выход из программы при нажатии Enter
         print("Exiting the program. Goodbye!")
+        time.sleep(3) # Zpoždění na 3s před uzavřením programu
+        exit()
         break
 
     # Kontrola zadání čísla textů
@@ -145,6 +150,3 @@ while True:
         print(f"{length:<4}|{'*' * count:<18}|{count:>4}")
     
     print(separator)
-
-
-input("Press <Enter> to exit...")
