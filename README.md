@@ -17,7 +17,7 @@ prokousat libovolně dlouhým textem a zjistit o něm různé informace.
   - sumu všech čísel (ne cifer) v textu
 
 ## Omezení a varování
-- Pokud uživatel je registrovaný, program umožni mu analyzovat texty
+- Pokud uživatel je registrovaný, program umožni mu analyzovat texty \n
 ![](screenshots/screen1.png)
 - Pokud není registrovaný, program upozorni jej a skončí
 
