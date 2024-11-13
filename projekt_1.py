@@ -55,89 +55,96 @@ print(f"Welcome to the app, {name.capitalize()}")
 
 
 # Výběr textu k analýze
-print(f"We have {len(TEXTS)} texts to be analyzed.")
+while True:
+    print(f"We have {len(TEXTS)} texts to be analyzed.")
 
-print(separator)
+    print(separator)
 
-nomber_text = input(f"Enter a number btw. 1 and {len(TEXTS)} to select: ")
+    nomber_text = input(f"Enter a number btw. 1 and {len(TEXTS)} to select: ")
 
-print(separator)
+    print(separator)
 
-# Kontrola zadání čísla textů
-if nomber_text.isdigit():
-    nomber_text = int(nomber_text)
-    if nomber_text not in range(1, len(TEXTS) + 1):
-        print(
-            "The selected text number is not valid. "
-            "Terminating the program."
-        )
+    if nomber_text == "":  # Выход из программы при нажатии Enter
+        print("Exiting the program. Goodbye!")
+        break
+
+    # Kontrola zadání čísla textů
+    if nomber_text.isdigit():
+        nomber_text = int(nomber_text)
+        if nomber_text not in range(1, len(TEXTS) + 1):
+            print(
+                "The selected text number is not valid. "
+                "Terminating the program."
+            )
+            time.sleep(3) # Zpoždění na 3s před uzavřením programu
+            exit()
+    else:
+        print("The selected is not valid. Terminating the program.")
         time.sleep(3) # Zpoždění na 3s před uzavřením programu
         exit()
-else:
-    print("The selected is not valid. Terminating the program.")
-    time.sleep(3) # Zpoždění na 3s před uzavřením programu
-    exit()
 
 
-# Analýza textu podle výběru
-text_selected = TEXTS[nomber_text - 1] # Výběr textu ze seznamu
+    # Analýza textu podle výběru
+    text_selected = TEXTS[nomber_text - 1] # Výběr textu ze seznamu
 
-# Vyčištění textu od mezer a interpunkčních znamének
-text_list = list(filter(None, re.split(r'\W+', text_selected)))
+    # Vyčištění textu od mezer a interpunkčních znamének
+    text_list = list(filter(None, re.split(r'\W+', text_selected)))
 
-# Nalezení a počítání titulních slov
-word_titlecase = sum(1 for word in text_list if word.istitle())
+    # Nalezení a počítání titulních slov
+    word_titlecase = sum(1 for word in text_list if word.istitle())
 
-# Nalezení a počítání slov psaných velkými písmeny
-word_uppercase = sum(1 for word in text_list 
-                     if word.isupper() and word.isalpha()
-                     )
+    # Nalezení a počítání slov psaných velkými písmeny
+    word_uppercase = sum(1 for word in text_list 
+                        if word.isupper() and word.isalpha()
+                        )
 
-# Nalezení a počítání slov psaných malými písmeny
-word_lowercase = sum(1 for word in text_list if word.islower())
+    # Nalezení a počítání slov psaných malými písmeny
+    word_lowercase = sum(1 for word in text_list if word.islower())
 
-# Nalezení a počítání čísel
-numbers = sum(1 for number in text_list if number.isdigit())
-numbers_sum = 0
-for number in text_list:
-    if number.isdigit():
-        number = int(number)
-        numbers_sum += number
+    # Nalezení a počítání čísel
+    numbers = sum(1 for number in text_list if number.isdigit())
+    numbers_sum = 0
+    for number in text_list:
+        if number.isdigit():
+            number = int(number)
+            numbers_sum += number
 
-# Závěr výsledků analýzy textu
-print(f"There are {len(text_list)} words in the selected text.")
-print(f"There are {word_titlecase} titlecase words.")
-print(f"There are {word_uppercase} uppercase words.")
-print(f"There are {word_lowercase} lowercase words.")
-print(f"There are {numbers} numeric strings.")
-print(f"The sum of all the numbers {numbers_sum}")
-
-
-# Zjištění délky slov a počtu výskytů v textu
-word_len = {}
-
-# Nalezení a počítání délky slov
-for word in text_list:
-    lenght = len(word)
-    if lenght not in word_len:
-        word_len[lenght] = 1
-    else:
-        word_len[lenght] += 1 # Počet výskytů
-
-word_len = dict(sorted(word_len.items()))
+    # Závěr výsledků analýzy textu
+    print(f"There are {len(text_list)} words in the selected text.")
+    print(f"There are {word_titlecase} titlecase words.")
+    print(f"There are {word_uppercase} uppercase words.")
+    print(f"There are {word_lowercase} lowercase words.")
+    print(f"There are {numbers} numeric strings.")
+    print(f"The sum of all the numbers {numbers_sum}")
 
 
-# Zobrazení sloupcového grafu
-print(separator)
-# Tisk záhlaví tabulky
-print(f"{'LEN':<4}|{'OCCURENCES':^18}|{'NR.':>4}")
+    # Zjištění délky slov a počtu výskytů v textu
+    word_len = {}
 
-print(separator)
+    # Nalezení a počítání délky slov
+    for word in text_list:
+        lenght = len(word)
+        if lenght not in word_len:
+            word_len[lenght] = 1
+        else:
+            word_len[lenght] += 1 # Počet výskytů
 
-# Tisk řádků tabulky
-# Formát řetězce: délka slova, hvězdičky podle počtu schůzek, počet schůzek
-for length, count in word_len.items():
-    print(f"{length:<4}|{'*' * count:<18}|{count:>4}")
+    word_len = dict(sorted(word_len.items()))
+
+
+    # Zobrazení sloupcového grafu
+    print(separator)
+    # Tisk záhlaví tabulky
+    print(f"{'LEN':<4}|{'OCCURENCES':^18}|{'NR.':>4}")
+
+    print(separator)
+
+    # Tisk řádků tabulky
+    # Formát řetězce: délka slova, hvězdičky podle počtu schůzek, počet schůzek
+    for length, count in word_len.items():
+        print(f"{length:<4}|{'*' * count:<18}|{count:>4}")
+    
+    print(separator)
 
 
 input("Press <Enter> to exit...")
