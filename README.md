@@ -15,6 +15,7 @@ prokousat libovolně dlouhým textem a zjistit o něm různé informace.
   - počet slov psaných malými písmeny
   - počet čísel (ne cifer)
   - sumu všech čísel (ne cifer) v textu
+![](screenshots/screen0.png)
 
 ## Omezení a varování
 - Pokud uživatel je registrovaný, program umožni mu analyzovat texty
@@ -23,9 +24,15 @@ prokousat libovolně dlouhým textem a zjistit o něm různé informace.
   
 - Pokud není registrovaný, program upozorni jej a skončí
 
+  ![](screnshots/screen2.png)
+
 - Pokud uživatel vybere takové číslo textu, které není v zadání, program jej upozorní a skončí
 
+  ![](screnshots/screen3.png)
+
 - Pokud uživatel zadá jiný vstup než číslo, program jej rovněž upozorní a skončí
+
+  ![](screenshots/screen4.png)
 
 ### Autor
 * [Yehor Baranov](https://github.com/JehorB)
