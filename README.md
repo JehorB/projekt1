@@ -5,6 +5,14 @@
 Cílem tohoto projektu je vytvořit ***textový analyzátor*** - program, který se bude umět 
 prokousat libovolně dlouhým textem a zjistit o něm různé informace.
 
+## Instalace a spuštění
+1. Naklonujte tento repozitář:
+   ```bash
+   git clone https://github.com/tvoje-uzivatelske-jmeno/projekt1.git
+2. Ujistěte se, že máte nainstalovaný Python 3.
+3. Spusťte skript: **python projekt_1.py**
+**Poznámka:** Projekt vyžaduje soubor *task_template.py*, který obsahuje proměnnou TEXTS.
+
 ## Co tento program dokáže
 - Ověřit uživatele pomocí přihlašovacího jména a hesla
 - Nechá uživatele vybrat mezi třemi texty
@@ -15,6 +23,9 @@ prokousat libovolně dlouhým textem a zjistit o něm různé informace.
   - počet slov psaných malými písmeny
   - počet čísel (ne cifer)
   - sumu všech čísel (ne cifer) v textu
+
+## Příklad použití
+Po spuštění programu budete vyzváni k přihlášení a poté k výběru textu pro analýzu.
 
 ![](screenshots/screen0.png)
 
