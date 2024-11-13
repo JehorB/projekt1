@@ -20,7 +20,7 @@ users_registred = {
     "liz":"pass123"
 }
 
-print(separator) # dělící čára
+print(separator)
 
 print(f"Sign in:")
 name = input("name: ").lower().strip()
@@ -49,23 +49,24 @@ else: # Ověření hesla s možností dalších pokusů
                 time.sleep(3) # Zpoždění na 3s před uzavřením programu
                 exit()
 
-print(separator) # dělící čára
+print(separator)
 
 print(f"Welcome to the app, {name.capitalize()}")
 
 
 # Výběr textu k analýze
-print("We have 3 texts to be analyzed.")
+print(f"We have {len(TEXTS)} texts to be analyzed.")
 
-print(separator) # dělící čára
+print(separator)
 
-nomber_text = input("Enter a number btw. 1 and 3 to select: ")
+nomber_text = input(f"Enter a number btw. 1 and {len(TEXTS)} to select: ")
 
-print(separator) # dělící čára
+print(separator)
 
 # Kontrola zadání čísla textů
 if nomber_text.isdigit():
-    if nomber_text not in ("1", "2", "3"):
+    nomber_text = int(nomber_text)
+    if nomber_text not in range(1, len(TEXTS) + 1):
         print(
             "The selected text number is not valid. "
             "Terminating the program."
@@ -79,7 +80,7 @@ else:
 
 
 # Analýza textu podle výběru
-text_selected = TEXTS[int(nomber_text) - 1] # Výběr textu ze seznamu
+text_selected = TEXTS[nomber_text - 1] # Výběr textu ze seznamu
 
 # Vyčištění textu od mezer a interpunkčních znamének
 text_list = list(filter(None, re.split(r'\W+', text_selected)))
