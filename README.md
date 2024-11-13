@@ -8,9 +8,10 @@ prokousat libovolně dlouhým textem a zjistit o něm různé informace.
 ## Instalace a spuštění
 1. Naklonujte tento repozitář:
    ```bash
-   git clone https://github.com/tvoje-uzivatelske-jmeno/projekt1.git
+   git clone https://github.com/JehorB/projekt1.git
 2. Ujistěte se, že máte nainstalovaný Python 3.
 3. Spusťte skript: **python projekt_1.py**
+
 **Poznámka:** Projekt vyžaduje soubor *task_template.py*, který obsahuje proměnnou TEXTS.
 
 ## Co tento program dokáže
