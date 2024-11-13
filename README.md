@@ -18,6 +18,7 @@ prokousat libovolně dlouhým textem a zjistit o něm různé informace.
 
 ## Omezení a varování
 - Pokud uživatel je registrovaný, program umožni mu analyzovat texty
+  
   ![](screenshots/screen1.png)
   
 - Pokud není registrovaný, program upozorni jej a skončí
