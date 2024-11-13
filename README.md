@@ -18,16 +18,7 @@ prokousat libovolně dlouhým textem a zjistit o něm různé informace.
 
 ## Omezení a varování
 - Pokud uživatel je registrovaný, program umožni mu analyzovat texty
-    ----------------------------------------
-    Sign in:
-    name: bob
-    password: 123
-    ----------------------------------------
-    Welcome to the app, Bob
-    We have 3 texts to be analyzed.
-    ----------------------------------------
-    Enter a number btw. 1 and 3 to select
-    or <Enter> to exit:
+            !(screenshots\screen1.png)
 
 - Pokud není registrovaný, program upozorni jej a skončí
 
