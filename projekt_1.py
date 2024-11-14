@@ -124,19 +124,22 @@ while True:
 
 
     # Zjištění délky slov a počtu výskytů v textu
-    word_len = {}
+    # word_len = {}
 
-    # Nalezení a počítání délky slov
-    for word in text_list:
-        lenght = len(word)
-        if lenght not in word_len:
-            word_len[lenght] = 1
-        else:
-            word_len[lenght] += 1 # Počet výskytů
+    # # Nalezení a počítání délky slov
+    # for word in text_list:
+    #     lenght = len(word)
+    #     if lenght not in word_len:
+    #         word_len[lenght] = 1
+    #     else:
+    #         word_len[lenght] += 1 # Počet výskytů
+
+    # pěkné smyčky = Komprehence (z angl. comprehensions)
+    word_len = {length: sum(1 for word in text_list if len(word) == length)
+            for length in set(len(word) for word in text_list)}
 
     word_len = dict(sorted(word_len.items()))
-
-
+    
     # Zobrazení sloupcového grafu
     print(separator)
     # Tisk záhlaví tabulky
