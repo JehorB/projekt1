@@ -8,6 +8,7 @@ email: yhr.baranov@post.cz
 import re
 import time
 from task_template import TEXTS # import textů
+from collections import Counter
 
 separator = '-' * 40 # dělící čára
 
@@ -135,8 +136,11 @@ while True:
     #         word_len[lenght] += 1 # Počet výskytů
 
     # pěkné smyčky = Komprehence (z angl. comprehensions)
-    word_len = {length: sum(1 for word in text_list if len(word) == length)
-            for length in set(len(word) for word in text_list)}
+    # word_len = {length: sum(1 for word in text_list if len(word) == length)
+    #         for length in set(len(word) for word in text_list)}
+
+    # Nejlepší varianta funkce Counter z modulu collections
+    word_len = Counter(len(word) for word in text_list)
 
     word_len = dict(sorted(word_len.items()))
     
