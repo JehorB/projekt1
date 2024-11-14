@@ -57,12 +57,13 @@ print(f"Welcome to the app, {name.capitalize()}")
 
 # Výběr textu k analýze
 while True:
-    print(f"We have {len(TEXTS)} texts to be analyzed.")
+    text_quantity = len(TEXTS)
+    print(f"We have {text_quantity} texts to be analyzed.")
 
     print(separator)
 
     nomber_text = input(
-        f"Enter a number btw. 1 and {len(TEXTS)} to select \n"
+        f"Enter a number btw. 1 and {text_quantity} to select \n"
         "or <Enter> to exit: "
         )
 
@@ -77,7 +78,7 @@ while True:
     # Kontrola zadání čísla textů
     if nomber_text.isdigit():
         nomber_text = int(nomber_text)
-        if nomber_text not in range(1, len(TEXTS) + 1):
+        if nomber_text not in range(1, text_quantity + 1):
             print(
                 "The selected text number is not valid. "
                 "Terminating the program."
@@ -125,21 +126,6 @@ while True:
 
 
     # Zjištění délky slov a počtu výskytů v textu
-    # word_len = {}
-
-    # # Nalezení a počítání délky slov
-    # for word in text_list:
-    #     lenght = len(word)
-    #     if lenght not in word_len:
-    #         word_len[lenght] = 1
-    #     else:
-    #         word_len[lenght] += 1 # Počet výskytů
-
-    # pěkné smyčky = Komprehence (z angl. comprehensions)
-    # word_len = {length: sum(1 for word in text_list if len(word) == length)
-    #         for length in set(len(word) for word in text_list)}
-
-    # Nejlepší varianta funkce Counter z modulu collections
     word_len = Counter(len(word) for word in text_list)
 
     word_len = dict(sorted(word_len.items()))
