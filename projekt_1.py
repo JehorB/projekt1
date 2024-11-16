@@ -69,7 +69,7 @@ while True:
 
     print(separator)
 
-    if nomber_text == "":  # Выход из программы при нажатии Enter
+    if nomber_text == "":  # Ukončení programu při stisknutí klávesy Enter
         print("Exiting the program. Goodbye!")
         time.sleep(3) # Zpoždění na 3s před uzavřením programu
         exit()
