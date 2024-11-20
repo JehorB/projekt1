@@ -62,23 +62,23 @@ while True:
 
     print(separator)
 
-    nomber_text = input(
+    number_text = input(
         f"Enter a number btw. 1 and {text_quantity} to select \n"
         "or <Enter> to exit: "
         )
 
     print(separator)
 
-    if nomber_text == "":  # Ukončení programu při stisknutí klávesy Enter
+    if number_text == "":  # Ukončení programu při stisknutí klávesy Enter
         print("Exiting the program. Goodbye!")
         time.sleep(3) # Zpoždění na 3s před uzavřením programu
         exit()
         break
 
     # Kontrola zadání čísla textů
-    if nomber_text.isdigit():
-        nomber_text = int(nomber_text)
-        if nomber_text not in range(1, text_quantity + 1):
+    if number_text.isdigit():
+        number_text = int(number_text)
+        if number_text not in range(1, text_quantity + 1):
             print(
                 "The selected text number is not valid. "
                 "Terminating the program."
@@ -92,7 +92,7 @@ while True:
 
 
     # Analýza textu podle výběru
-    text_selected = TEXTS[nomber_text - 1] # Výběr textu ze seznamu
+    text_selected = TEXTS[number_text - 1] # Výběr textu ze seznamu
 
     # Vyčištění textu od mezer a interpunkčních znamének
     text_list = list(filter(None, re.split(r'\W+', text_selected)))
