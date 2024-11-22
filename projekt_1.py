@@ -5,8 +5,8 @@ author: Yehor Baranov
 email: yhr.baranov@post.cz
 
 """
-import re
-import time
+from re import split
+from time import sleep
 from task_template import TEXTS # import textů
 from collections import Counter
 
@@ -30,7 +30,7 @@ name = input("name: ").lower().strip()
 if name not in users_registred.keys():
     print(separator)
     print("unregistered user, terminating the program.")
-    time.sleep(3) # Zpoždění na 3s před uzavřením programu
+    sleep(3) # Zpoždění na 3s před uzavřením programu
     exit()
 else: # Ověření hesla s možností dalších pokusů
     attempts = 3  # Celkový počet pokusů
@@ -47,7 +47,7 @@ else: # Ověření hesla s možností dalších pokusů
             else:
                 print(separator)
                 print("Access denied. Terminating the program.")
-                time.sleep(3) # Zpoždění na 3s před uzavřením programu
+                sleep(3) # Zpoždění na 3s před uzavřením programu
                 exit()
 
 print(separator)
@@ -71,7 +71,7 @@ while True:
 
     if number_text == "":  # Ukončení programu při stisknutí klávesy Enter
         print("Exiting the program. Goodbye!")
-        time.sleep(3) # Zpoždění na 3s před uzavřením programu
+        sleep(3) # Zpoždění na 3s před uzavřením programu
         exit()
         break
 
@@ -83,11 +83,11 @@ while True:
                 "The selected text number is not valid. "
                 "Terminating the program."
             )
-            time.sleep(3) # Zpoždění na 3s před uzavřením programu
+            sleep(3) # Zpoždění na 3s před uzavřením programu
             exit()
     else:
         print("The selected is not valid. Terminating the program.")
-        time.sleep(3) # Zpoždění na 3s před uzavřením programu
+        sleep(3) # Zpoždění na 3s před uzavřením programu
         exit()
 
 
@@ -95,7 +95,7 @@ while True:
     text_selected = TEXTS[number_text - 1] # Výběr textu ze seznamu
 
     # Vyčištění textu od mezer a interpunkčních znamének
-    text_list = list(filter(None, re.split(r'\W+', text_selected)))
+    text_list = list(filter(None, split(r'\W+', text_selected)))
 
     # Nalezení a počítání titulních slov
     word_titlecase = sum(1 for word in text_list if word.istitle())
